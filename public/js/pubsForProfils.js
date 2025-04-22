@@ -339,7 +339,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                     "Veuillez entrer votre demande pour générer un commentaire pour un post:"
                   );
                   if (userInput) {
-                    const API_KEY = "AIzaSyA3pn29FRIQgafsjykTc7sC7d16R4qG8ko";
+                    const API_KEY = "----------";
                     const genAI = new GoogleGenerativeAI(API_KEY);
                     const model = genAI.getGenerativeModel({
                       model: "gemini-pro",
