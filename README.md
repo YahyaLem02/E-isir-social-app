@@ -45,3 +45,10 @@ This app also integrates the **Gemini API** to assist students by automatically 
 3. The content is automatically reviewed and enhanced by the Gemini API.
 4. The student uploads personal files to their private cloud.
 5. They can chat  with  students.
+
+## 🔧 Development Notes
+
+This project was created as an academic demonstration of Firebase's capabilities and the integration of AI technologies like **Gemini** into an educational web application.
+
+> Academic project – ISIR Bachelor Program
+
