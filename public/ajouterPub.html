@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publier</title>
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/postStyle.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&amp;display=swap">
+
+</head>
+<style>
+    body {
+        min-height: 100vh;
+        background-color: var(--body-color);
+        transition: var(--tran-05);
+        margin: 0;
+        overflow-x: hidden; 
+    }
+
+    .sidebar.close + .main-content {
+        margin-left: 60px;
+    }
+
+    @media (max-width: 858px) {
+        .sidebar {
+            margin-left: -190px; 
+        }
+        .sidebar.open {
+            margin-left: 0; 
+        }
+        .sidebar.open + .main-content {
+            margin-left: 250px;
+        }
+    }
+</style>
+<body>
+    <nav class="sidebar">
+        <header>
+            <div class="image-text"> <a href="#" class="text-logo-a">
+                <span class="image">
+                    <img id="profilePicturePost" src="#" alt="">
+                </span>
+                <div class="text logo-text">
+                    <span class="name">E-ISIRConnect</span>
+            </a>
+            <span class="profession" id="userFullName">👋 Bonjour </span>
+        </div>
+            </div>
+        </header>
+        <div class="menu-bar">
+            <div class="menu">
+                <ul class="menu-links">
+                    <ul class="menu-links">
+                        <li class="nav-link">
+                            <a href="monProfil.html">
+                                <i class='bx bx-user icon'></i>
+                                <span class="text nav-text">Mon profil</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="ajouterPub.html">
+                                <i class='bx bx-news icon'></i>
+                                <span class="text nav-text">Publier</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="filActualites.html">
+                                <i class='bx bxs-news icon'></i>
+                                <span class="text nav-text">Fil d'actualités</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="messages.html">
+                                <i class='bx bx-envelope icon'></i>
+                                <span class="text nav-text">Chat Room</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="myCloud.html">
+                                <i class='bx bx-folder icon'></i> 
+                                <span class="text nav-text">MyCloud</span>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </ul>
+            </div>
+            <div class="bottom-content">
+                <ul>
+                    <li class="">
+                        <a href="#" id="logoutBtn">
+                            <i class='bx bx-log-out icon'></i>
+                            <span class="text nav-text">Déconnexion</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="#" method="post" enctype="multipart/form-data">
+                            <div class="form-group user-profile">
+                                <img id="profilePicturePost" src="" alt="Profile Picture" class="profile-picture">
+                                <span class="username" id="userFullName"></span>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" id="description" name="description" rows="3" placeholder="Que voulez-vous partager ?"></textarea>
+                                <div class="mt-2">
+                                    <button type="button" id="correctButton" class="btn btn-success"><i class="fas fa-check"></i> Corriger</button>
+                                    <button type="button" id="improveButton" class="btn btn-warning"><i class="fas fa-pencil-alt"></i> Améliorer</button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="file" class="form-control-file" style="display: none;" id="photos" name="photos[]" multiple>
+                                <label for="photos"><i class="far fa-image"></i> Photo</label>
+                            </div>
+                            <div id="selectedPhotosContainer"></div> 
+                            <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Publier</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <script src="js/pubPhoto.js"></script>
+    <script>
+        var userFullName = sessionStorage.getItem('userFullName');
+        console.log(userFullName)
+    
+        if (userFullName) {
+            var elements = document.querySelectorAll('#userFullName');
+            elements.forEach(function(element) {
+                element.innerText = userFullName;
+            });
+        }
+    </script>
+    <script type="importmap">
+        {
+            "imports": {
+                "@google/generative-ai": "https://esm.run/@google/generative-ai"
+            }
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js" type="module"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-storage-compat.js" type="module"></script>
+    <script type="module" src="js/logOut.js"> </script>
+    <script type="module" src="js/nvPost.js"> </script>
+    <script type="module"src="js/controlNavbar.js"></script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chat ROOM</title>
+        <link rel="stylesheet" href="css/nav.css">
+        <link rel="stylesheet" href="css/stylePub.css">
+        <link rel="stylesheet" href="css/profile.css">
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet" />
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+            rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&amp;display=swap">
+        <link rel="stylesheet"
+            href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css">
+        <link rel="stylesheet"
+            href="https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&amp;display=swap">
+        <link rel="stylesheet" href="css/conversation-style.css">
+        <link rel="stylesheet" href="css/navbar.css">
+        <link
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/locale/fr.min.js"></script>
+
+    </head>
+    <body>
+        <nav class="sidebar">
+            <header>
+                <div class="image-text"> <a href="#" class="text-logo-a">
+                        <span class="image">
+                            <img id="profilePicture" src="#" alt>
+                        </span>
+                        <div class="text logo-text">
+                            <span class="name">E-ISIRConnect</span>
+                        </a>
+                        <span class="profession" id="userFullName">👋 Bonjour
+                        </span>
+                    </div>
+                </div>
+            </header>
+            <div class="menu-bar">
+                <div class="menu">
+                    <ul class="menu-links">
+                        <ul class="menu-links">
+                            <li class="nav-link">
+                                <a href="monProfil.html">
+                                    <i class='bx bx-user icon'></i>
+                                    <span class="text nav-text">Mon
+                                        profil</span>
+                                </a>
+                            </li>
+                            <li class="nav-link">
+                                <a href="ajouterPub.html">
+                                    <i class='bx bx-news icon'></i>
+                                    <span class="text nav-text">Publier</span>
+                                </a>
+                            </li>
+                            <li class="nav-link">
+                                <a href="filActualites.html">
+                                    <i class='bx bxs-news icon'></i>
+                                    <span class="text nav-text">Fil
+                                        d'actualités</span>
+                                </a>
+                            </li>
+                            <li class="nav-link">
+                                <a href="messages.html">
+                                    <i class='bx bx-envelope icon'></i>
+                                    <span class="text nav-text">Chat Room</span>
+                                </a>
+                            </li>
+                            <li class="nav-link">
+                                <a href="myCloud.html">
+                                    <i class='bx bx-folder icon'></i>
+                                    <span class="text nav-text">MyCloud</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </ul>
+                </div>
+                <div class="bottom-content">
+                    <ul>
+                        <li class="">
+                            <a href="#" id="logoutBtn">
+                                <i class='bx bx-log-out icon'></i>
+                                <span class="text nav-text">Déconnexion</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <section>
+            <div id="chat-container">
+                <div id="messages-container"></div>
+                <div class="composant-envoi">
+                    <div id="file-input-container">
+                        <input type="file" id="file-input" multiple style="display: none;">
+                        <label for="file-input" id="file-input-label">
+                            <i class="fas fa-image" id="icon-image"></i>
+                        </label>
+                    </div>
+                    <input type="text" id="message-input" placeholder="écrire ton message.....">
+                    <button id="correctButton" class="fas fa-magic" >Corriger</button>
+                    <button id="sendButton" class="fas fa-paper-plane">Envoyer</button>
+                </div>
+            </div>
+            
+        </section>
+    </body>
+    <script type="importmap">
+        {
+            "imports": {
+                "@google/generative-ai": "https://esm.run/@google/generative-ai"
+            }
+        }
+    </script>
+    <script type="module" src="js/logOut.js"> </script>
+
+    <script type="module" src="js/controlNavbar.js"></script>
+    <script type="module" src="js/conversation.js"></script>
+</html>

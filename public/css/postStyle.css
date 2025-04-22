@@ -1,0 +1,57 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px;
+  padding: 0 20px;
+}
+
+.card {
+    width: 768px;
+    max-width: 768px;
+    border-radius: 10px;
+    border: 1px solid #dddfe2;
+    padding: 20px;
+}
+
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-picture {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.username {
+    font-weight: bold;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: inline-block;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #1877f2;
+    border-color: #1877f2;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.btn-primary:hover {
+    background-color: #166fe5;
+}

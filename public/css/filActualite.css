@@ -1,0 +1,135 @@
+
+
+
+.post {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #fff;
+  border: 1px solid #dddfe2;
+  border-radius: 8px;
+}
+
+.post p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.photos {
+  width: 100%;
+  height: auto; 
+  border-radius: 5px;
+  display: block;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  color: #1877f2;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.username {
+  font-weight: bold;
+  margin: 0;
+}
+
+.profile-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .photos {
+    width: 100%; 
+    height: auto; 
+  }
+
+  .post {
+    padding: 10px;
+  }
+
+  .user-info {
+    flex-direction: column;
+    align-items: flex-start; 
+    margin-bottom: 15px;
+  }
+
+  .profile-photo {
+    margin-right: 0; 
+    margin-bottom: 10px; 
+  }
+}
+
+.photos-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.main-photo {
+  width: 300px; 
+  height: auto;
+  margin-right: 10px;
+}
+
+
+.small-photo {
+  width: 100px;
+  height: auto;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.post-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-control {
+  width: 25%;
+}
+
+.comment-input {
+  width: 50%;
+}
+
+.btn-send {
+  flex-grow: 1;
+
+}
+
+select{
+  width: 20%;
+}
+
+
+.impressions-section {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+
+.impression-icon {
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+
+.total-impressions {
+  font-size: 14px;
+  color: #606770;
+}

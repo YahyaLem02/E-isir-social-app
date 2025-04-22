@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon profil</title>
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&amp;display=swap">
+    <link rel="stylesheet" href="css/stylePub.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&amp;display=swap">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&amp;display=swap">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/boxicons/2.0.7/css/boxicons.min.css">
+
+
+    <style>
+        body {
+            min-height: 100vh;
+            background-color: var(--body-color);
+            transition: var(--tran-05);
+            margin: 0;
+            overflow-x: hidden;
+        }
+    
+        .sidebar.close+.main-content {
+            margin-left: 60px;
+        }
+    
+        @media (max-width: 858px) {
+            .sidebar {
+                margin-left: -190px;
+            }
+    
+            .sidebar.open {
+                margin-left: 0;
+            }
+    
+            .sidebar.open+.main-content {
+                margin-left: 250px;
+            }
+        }
+    
+        .hidden {
+            display: none;
+        }
+    
+        .liked {
+            color: #1877f2;
+        }
+    
+      .post {
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+        padding: 20px;
+      }
+      
+      .post__option {
+        cursor: pointer;
+      }
+      
+      .post__comments {
+        margin-top: 10px;
+      }
+      
+      .comment {
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+      }
+      
+      .comment__avatar {
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+      
+      .view-more-comments,
+      .view-less-comments {
+        background-color: #f0f0f0;
+        border: none;
+        color: #333;
+        cursor: pointer;
+        padding: 5px 10px;
+        margin-top: 10px;
+      }
+      
+      .generate-comment-button {
+        background-color: #007bff;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      
+      .generated-comment-input {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 5px;
+      }
+      
+      .save-button {
+        background-color: #28a745;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+    
+      .generated-comment-textarea {
+        width: 100%;
+        height: 100px; 
+        resize: vertical; 
+        padding: 8px;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+    /* Style des boutons */
+    .regenerate-button,
+    .cancel-button,
+    .save-button {
+        background-color: #007bff; 
+        color: #fff;
+        border: none; 
+        cursor: pointer; 
+        padding: 8px 16px; 
+        margin-right: 10px; 
+    }
+    
+    /* Style du bouton Regénérer */
+    .regenerate-button {
+        background-color: #007bff;
+    }
+    
+    /* Style du bouton Annuler */
+    .cancel-button {
+        background-color: #dc3545;
+    }
+    
+    /* Style du bouton Enregistrer */
+    .save-button {
+        background-color: #28a745;
+    }
+    
+    /* Effet au survol */
+    .regenerate-button:hover,
+    .cancel-button:hover,
+    .save-button:hover {
+        opacity: 0.8; 
+    }
+h1 {
+  font-size: 24px; 
+  color: #333; 
+  margin-top: 20px; 
+  margin-bottom: 10px;
+  margin-left: 650px; 
+}
+
+hr {
+  border: none; 
+  border-top: 1px solid #ccc; 
+  margin-top: 10px; 
+  margin-bottom: 20px;
+}
+
+
+    </style>
+</head>
+
+<body>
+    <nav class="sidebar">
+        <header>
+            <div class="image-text"> <a href="#" class="text-logo-a">
+                    <span class="image">
+                        <img id="profilePicture" src="#" alt="">
+                    </span>
+                    <div class="text logo-text">
+                        <span class="name">E-ISIRConnect</span>
+                </a>
+                <span class="profession" id="userFullName">👋 Bonjour </span>
+            </div>
+            </div>
+        </header>
+        <div class="menu-bar">
+            <div class="menu">
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="monProfil.html">
+                            <i class='bx bx-user icon'></i>
+                            <span class="text nav-text">Mon profil</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="ajouterPub.html">
+                            <i class='bx bx-news icon'></i>
+                            <span class="text nav-text">Publier</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="filActualites.html">
+                            <i class='bx bxs-news icon'></i>
+                            <span class="text nav-text">Fil d'actualités</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="messages.html">
+                            <i class='bx bx-envelope icon'></i>
+                            <span class="text nav-text">Chat Room</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="myCloud.html">
+                            <i class='bx bx-folder icon'></i> 
+                            <span class="text nav-text">MyCloud</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <div class="bottom-content">
+                <ul>
+                    <li class="">
+                        <a href="#" id="logoutBtn">
+                            <i class='bx bx-log-out icon'></i>
+                            <span class="text nav-text">Déconnexion</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="profile-card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="d-flex flex-column align-items-center text-center">
+                                        <img id="userPhoto" src="img/person.png"
+                                            alt="Admin" class="rounded-circle" width="150">
+                                        <div class="mt-3">
+                                            <h4 id="userFullName"></h4>
+                                            <input type="file" id="photoInput" style="display: none;">
+                                            <button id="changePhotoBtn" class="btn btn-primary">Changer la
+                                                photo</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Nom complet</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input type="text" name="fullName" id="fullNameInput" disabled>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Email</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input type="text" id="emailInput" name="email" disabled>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Numéro de telephone</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input type="text" id="phoneNumber" name="phoneNumber" disabled>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Addresse</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input type="text" name="address" id="address" disabled>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <button id="editBtn" class="btn btn-info">Modifer</button>
+                                            <button id="saveBtn" class="btn btn-success"
+                                                style="display: none;">Enregistrer</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <h1>Mes publications</h1>
+
+        <div id="postsContainer"></div>
+
+    
+    </section>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "@google/generative-ai": "https://esm.run/@google/generative-ai"
+            }
+        }
+    </script>
+    <script type="module" src="js/logOut.js"> </script>
+    <script type="module" src="js/profilInfo.js"></script>
+    <script type="module" src="js/pubsForProfils.js"></script>
+    <script  type="module" src="js/modifyInfo.js" ></script>
+    <script  type="module" src="js/controlNavbar.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+
+</html>

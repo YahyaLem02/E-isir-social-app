@@ -1,0 +1,150 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  display: flex;
+  height: 100vh;
+}
+
+nav.sidebar {
+  width: 250px;
+  background-color: #f0f0f0;
+  border-right: 1px solid #ccc;
+  z-index: 1; 
+}
+
+#chat-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#messages-container {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  margin-left: 250px; 
+}
+
+.message {
+  max-width: 70%;
+  margin: 10px;
+  padding: 15px;
+  border-radius: 20px;
+  word-wrap: break-word;
+  font-size: 0.9em;
+}
+
+.sent {
+  align-self: flex-end;
+  background-color: #0084ff;
+  color: white;
+  text-align: right;
+  margin-left:40% ;
+}
+
+.sent .user-info{
+  text-align: left;
+}
+
+
+.received {
+  align-self: flex-start;
+  background-color: #f0f0f0;
+  color: black;
+}
+
+.timestamp {
+  font-size: 12px;
+  color: #888;
+}
+
+.profile-image {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.received .timestamp {
+  color: black;
+  text-align: right; 
+  display: flex; 
+  justify-content: flex-end; 
+  align-items: flex-end; 
+}
+
+.message-content a{
+  color: #cfc012;
+}
+
+.sent .timestamp {
+  color: #fff;
+  text-align: left; 
+  display: flex;
+  justify-content: flex-start; 
+  align-items: flex-end; 
+}
+
+.message-content img {
+  max-width: 80%;
+  height: 300px;
+  border-radius: 10px;
+  margin: 10px auto; 
+  display: block; 
+}
+
+
+.message-content video {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.composant-envoi {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  margin-left: 250px; 
+}
+
+#file-input-container {
+  margin-right: 20px;
+}
+
+#message-input {
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 14px;
+  outline: none;
+}
+
+#sendButton {
+  background-color: #0084ff;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#correctButton {
+  background-color: #ebc818;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+}
+

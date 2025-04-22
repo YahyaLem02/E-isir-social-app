@@ -1,0 +1,29 @@
+body {
+    min-height: 100vh;
+    background-color: var(--body-color);
+    transition: var(--tran-05);
+    margin: 0; 
+    overflow-x: hidden; 
+}
+
+.main-content {
+    margin-top: 80px;
+    margin-left: 250px; 
+    transition: margin-left 0.5s;
+}
+
+.sidebar.close + .main-content {
+    margin-left: 60px; 
+}
+
+@media (max-width: 858px) {
+    .sidebar {
+        margin-left: -190px;
+    }
+    .sidebar.open {
+        margin-left: 0; 
+    }
+    .sidebar.open + .main-content {
+        margin-left: 250px;
+    }
+}

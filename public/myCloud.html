@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon cloud</title>
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/stylePub.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&amp;display=swap">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&amp;display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+
+<body>
+    <nav class="sidebar">
+        <header>
+            <div class="image-text"> <a href="#" class="text-logo-a">
+                    <span class="image">
+                        <img id="profilePicture" src="#" alt="">
+                    </span>
+                    <div class="text logo-text">
+                        <span class="name">E-ISIRConnect</span>
+                </a>
+                <span class="profession" id="userFullName">👋 Bonjour </span>
+            </div>
+            </div>
+        </header>
+        <div class="menu-bar">
+            <div class="menu">
+                <ul class="menu-links">
+                    <ul class="menu-links">
+                        <li class="nav-link">
+                            <a href="monProfil.html">
+                                <i class='bx bx-user icon'></i>
+                                <span class="text nav-text">Mon profil</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="ajouterPub.html">
+                                <i class='bx bx-news icon'></i>
+                                <span class="text nav-text">Publier</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="filActualites.html">
+                                <i class='bx bxs-news icon'></i>
+                                <span class="text nav-text">Fil d'actualités</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="messages.html">
+                                <i class='bx bx-envelope icon'></i>
+                                <span class="text nav-text">Chat Room</span>
+                            </a>
+                        </li>
+                        <li class="nav-link">
+                            <a href="myCloud.html">
+                                <i class='bx bx-folder icon'></i>
+                                <span class="text nav-text">MyCloud</span>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </ul>
+            </div>
+            <div class="bottom-content">
+                <ul>
+                    <li class="">
+                        <a href="#" id="logoutBtn">
+                            <i class='bx bx-log-out icon'></i>
+                            <span class="text nav-text">Déconnexion</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="cloudApp">
+
+        <!-- Bouton d'importation -->
+    <br/>
+   <!-- Bouton d'importation -->
+<button id="importButton" style="background-color: #1877f2; border-radius: 5px; margin-bottom: 10px;">Importer</button>
+<br>
+<div class="search-container">
+    <span class="search-icon"><i class="bx bx-search"></i></span>
+    <input type="text" id="searchInput" placeholder="Rechercher par nom de fichier">
+</div>
+
+
+
+        <div id="fileList" class="file-list"></div>
+
+
+        <div id="importModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeButton">&times;</span>
+                <div class="file-input-container">
+                    <input type="file" id="fileInput" multiple class="form-control file-input" />
+                    <label for="fileInput" class="file-input-label">Choisir un fichier</label>
+                </div>
+                <button id="uploadButton">Uploader</button>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    <script>
+        var userFullName = sessionStorage.getItem('userFullName');
+        console.log(userFullName)
+
+        if (userFullName) {
+            var elements = document.querySelectorAll('#userFullName');
+            elements.forEach(function(element) {
+                element.innerText = userFullName;
+            });
+        }
+    </script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.6.7/firebase-storage.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js"></script>
+    <script type="module" src="js/monCloud.js"></script>
+    <script type="module" src="js/controlNavbar.js"></script>
+
+
+    <style>
+        .hidden {
+            display: none;
+        }
+
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            max-width: 80%;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        .card-container {
+            display: inline-block;
+            margin: 10px;
+        }
+
+        .card {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 150px;
+            text-align: center;
+        }
+
+        .file-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        body {
+            min-height: 100vh;
+            background-color: #f5f5f5;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+
+        #cloudApp {
+            margin-left: 250px;
+            padding: 20px;
+            transition: margin-left 0.3s;
+        }
+
+        #cloudApp button {
+            background-color: #3498db;
+            color: #ecf0f1;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .file-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .card {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 858px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+            }
+
+            #cloudApp {
+                margin-left: 0;
+            }
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .file-input-label {
+            display: inline-block;
+            background-color: #3498db;
+            color: #ecf0f1;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .file-input-container {
+            margin-bottom: 10px;
+        }
+
+        .search-container {
+            position: relative;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+        }
+
+        #searchInput {
+            width: 80%;
+            height: 35px;
+            padding-left: 35px;
+            border-radius: 5px;
+            border: none;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+        }
+
+        .search-icon i {
+            font-size: 20px;
+        }
+    </style>
+        <script type="module" src="js/logOut.js"> </script>
+
+</body>
+
+</html>
