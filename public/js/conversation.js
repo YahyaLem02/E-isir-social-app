@@ -223,7 +223,7 @@ async function correctMessage() {
 
 async function generateCorrectedMessage(messageText) {
 
-  const API_KEY = "AIzaSyA3pn29FRIQgafsjykTc7sC7d16R4qG8ko"; 
+  const API_KEY = "------"; 
   const genIA = new GoogleGenerativeAI(API_KEY);
   const model = genIA.getGenerativeModel({ model: "gemini-pro" });
   const result = await model.generateContent("Corriger le message : " + messageText);
